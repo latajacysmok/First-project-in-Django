@@ -1,0 +1,15 @@
+<h2>Login</h2>
+<div style="margin-left:35%;margin-right:35%;">
+<fieldset>
+    <form method="POST" action=".">{% csrf_token %}
+    <div style="text-align:left";>{{ form.as_p }}</div>
+    <input type="hidden" name="next" value="/polls/" />
+    <input type="submit" value="Logowanie"/>
+  </form>
+</fieldset>
+</div>
+
+<p>
+    <div style="text-align:center;"><a href="/polls/">Strona główna</a></div>
+</p>
+

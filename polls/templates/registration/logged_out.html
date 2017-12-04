@@ -1,0 +1,15 @@
+<h2>Jesteś wylogowany</h2>
+<div style="text-align:center;">
+    <fieldset>
+        <form method="POST" action=".">{% csrf_token %}
+            <div style="text-align:left";>{{ form.as_p }}</div>
+            <a href="{% url 'login'%}">Kliknij tutaj aby się zalogować</a>
+        </form>
+    </fieldset>
+
+
+</div>
+
+<p>
+    <div style="text-align:center;"><a href="/polls/">Strona główna</a></div>
+</p>

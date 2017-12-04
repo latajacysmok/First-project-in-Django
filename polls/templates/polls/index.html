@@ -1,0 +1,27 @@
+{% extends 'polls/base.html' %}
+
+{% block main_content %}
+
+{{ pub_date }}
+
+<div style="float:right; border: 1px solid black; padding: 5px;">
+    {% if not user.is_authenticated %}
+        <p><a href="{% url 'login' %}">Zaloguj się</a></p>
+        <p><a href="{% url 'polls:signup' %}">Zarejestruj się</a></p>
+    {% else %}
+        <p>Witaj, {{user.username}}.</p>
+        <p><a href="{% url 'logout' %}">Wyloguj się</a>
+    {% endif %}
+</div>
+
+{% if latest_questions %}
+    <ul>
+        {% for question in latest_questions %}
+            <li><a href ="{% url 'polls:detail' question.id %}"><b>{{question.question_text}}</b></a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+     <p> Nie masz żadnych pytań! Proszę dodaj coś. </p>
+{% endif %}
+
+{% endblock %}
